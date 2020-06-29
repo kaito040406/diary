@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{% static 'diary/reset.css' %}" />
+    <link
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'diary/style.css' %}" />
+  </head>
+  <body>
+    <header>
+      <div id="nav-drawer">
+        <input id="nav-input" type="checkbox" class="nav-unshown" />
+        <label id="nav-open" for="nav-input"><span></span></label>
+        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+        <div id="nav-content">
+          <div class="contentName">
+            朝礼日誌
+          </div>
+          <div class="contentName">
+            日記
+          </div>
+          <div class="contentName">
+            学則
+          </div>
+        </div>
+      </div>
+      <div class="rogo" name="rogo">
+        <img class="logoImg" src="{% static 'diary/demoRogo.png' %}" />
+        <span class="newAndSearch">
+          <i class="fas fa-pencil-alt"></i>
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
+    </header>
+    <div class="contentsBox" name="contentsBox">
+      <div class="contentBox" name="contentBox">
+        <div class="contentInnerBox">
+          <span class="contentHeader" name="contentHeader">
+            <label>日直　長谷川海斗</label>
+          </span>
+          <div class="contentBody" name="contentBody">
+            みなさんおはようございます😁<br />
+            本日の日直当番は、引越し回数が多い長谷川です‼️<br />
+            本日は月曜ということで、...
+            <span class="allTextBtton">続きを読む</span>
+          </div>
+          <div class="userResult">
+            <i class="far fa-heart">２</i>
+            <i class="far fa-comment-alt">４</i>
+          </div>
+          <div class="contentOption" name="contentOption">
+            <span class="uploadTime" name="uploadTime">
+              10:24
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="contentBox" name="contentBox">
+        <div class="contentInnerBox">
+          <span class="contentHeader" name="contentHeader">
+            <label>日直　高松まさや</label>
+          </span>
+          <div class="contentBody" name="contentBody">
+            皆さんおはようございます😁<br />
+            本日から日直が朝の挨拶をするようにしたいと思います✨<br />
+            朝からやる気を少しでも上げれたらいいなと...
+            <span class="allTextBtton">続きを読む</span>
+          </div>
+          <div class="userResult">
+            <i class="far fa-heart">３</i>
+            <i class="far fa-comment-alt">６</i>
+          </div>
+          <div class="contentOption" name="contentOption">
+            <span class="uploadTime" name="uploadTime">
+              1日前
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="contentBox" name="contentBox">
+        <div class="contentInnerBox">
+          <span class="contentHeader" name="contentHeader">
+            <label>日直　松田淳</label>
+          </span>
+          <div class="contentBody" name="contentBody">
+            おはようございます😁！<br />
+            徳島出身、元SEのアークス松田です！<br />
+            健康増進のためオフィスの5階までは...
+            <span class="allTextBtton">続きを読む</span>
+          </div>
+          <div class="userResult">
+            <i class="far fa-heart">２</i>
+            <i class="far fa-comment-alt">３</i>
+          </div>
+          <div class="contentOption" name="contentOption">
+            <span class="uploadTime" name="uploadTime">
+              2日前
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="contentBox" name="contentBox">
+        <div class="contentInnerBox">
+          <span class="contentHeader" name="contentHeader">
+            <label>日直　菅　誉</label>
+          </span>
+          <div class="contentBody" name="contentBody">
+            おはようございます😁！<br />
+            生まれも育ちも大阪の菅です。<br />
+            ガースやすがちゃんなど呼ばれています...
+            <span class="allTextBtton">続きを読む</span>
+          </div>
+          <div class="userResult">
+            <i class="far fa-heart">６</i>
+            <i class="far fa-comment-alt">１</i>
+          </div>
+          <div class="contentOption" name="contentOption">
+            <span class="uploadTime" name="uploadTime">
+              3日前
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="contentBox" name="contentBox">
+        <div class="contentInnerBox">
+          <span class="contentHeader" name="contentHeader">
+            <label>日直　平井　健太</label>
+          </span>
+          <div class="contentBody" name="contentBody">
+            おはようございます😁！<br />
+            アークスの平井です！<br />
+            人材紹介業に約10年携わっております...
+            <span class="allTextBtton">続きを読む</span>
+          </div>
+          <div class="userResult">
+            <i class="far fa-heart">５</i>
+            <i class="far fa-comment-alt">２</i>
+          </div>
+          <div class="contentOption" name="contentOption">
+            <span class="uploadTime" name="uploadTime">
+              4日前
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="contentBox" name="contentBox">
+        <div class="contentInnerBox">
+          <span class="contentHeader" name="contentHeader">
+            <label>日直　戸川　大輝</label>
+          </span>
+          <div class="contentBody" name="contentBody">
+            おはようございます！<br />
+            アークスの戸川です<br />
+            今年の4月からアークスの一員として日々奮...
+            <span class="allTextBtton">続きを読む</span>
+          </div>
+          <div class="userResult">
+            <i class="far fa-heart">８</i>
+            <i class="far fa-comment-alt">９</i>
+          </div>
+          <div class="contentOption" name="contentOption">
+            <span class="uploadTime" name="uploadTime">
+              10:24
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="contentBox" name="contentBox">
+        <div class="contentInnerBox">
+          <span class="contentHeader" name="contentHeader">
+            <label>日直　蔦田</label>
+          </span>
+          <div class="contentBody" name="contentBody">
+            おはようございます！<br />
+            蔦田です。<br />
+            現在広告営業をしております...
+            <span class="allTextBtton">続きを読む</span>
+          </div>
+          <div class="userResult">
+            <i class="far fa-heart">８</i>
+            <i class="far fa-comment-alt">１</i>
+          </div>
+          <div class="contentOption" name="contentOption">
+            <span class="uploadTime" name="uploadTime">
+              10:24
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

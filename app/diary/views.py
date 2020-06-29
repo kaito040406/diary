@@ -1,0 +1,19 @@
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.views.generic import ListView
+from diary.lib import analysis
+
+# Create your views here.
+def index(request):
+    return render(request, 'diary/index.html')
+
+def form(request):
+  userName = request.POST['userName']
+  body = request.POST['body']
+  analysisBody = analysis.langAnalysis(body)
+  params = {
+    'userName':userName,
+    'bodys':analysisBody,
+  }
+  return render(request, 'diary/result.html', params)

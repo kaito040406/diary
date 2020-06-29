@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>デモ</title>
+  </head>
+  <body>
+    <span>日直スピーチ</span>
+    <form action="{% url 'form' %}" method="post">
+      {% csrf_token %}
+      <label>お名前</label>
+      <input id="userName" type="text" name="userName" />
+      <label>日誌</label>
+      <input id="body" type="text" name="body" />
+      <input type="submit" value="投稿" />
+    </form>
+  </body>
+</html>
