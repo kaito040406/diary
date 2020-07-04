@@ -1,149 +1,265 @@
+@charset "utf-8";
+
+/* ベース */
 html {
-  background-color: #eeeeee;
+  font-size: 62.5%;
 }
 body {
-  width: 100%;
+  color: #383838;
+  font-size: 1.6rem;
+  font-family: "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体",
+    "YuGothic", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ",
+    "Meiryo", "verdana", sans-serif;
 }
-header {
-  background-color: white;
-  height: 7rem;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: #333;
+}
+.hidden {
+  display: none;
+}
+
+/*ヘッダー*/
+.header {
   width: 100%;
-  box-shadow: 2px;
-  border-bottom: 2px solid #444444;
+  height: 60px;
   position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
 }
-#nav-drawer {
+
+/*ハンバーガー*/
+.ham {
   position: relative;
-  height: 1px;
 }
-.nav-unshown {
+
+.ham_checkbox {
   display: none;
 }
-#nav-open {
-  display: inline-block;
-  width: 30px;
-  /* height: 100px; */
-  margin: 2rem 0 2rem 2rem;
-  vertical-align: middle;
-}
-#nav-open span,
-#nav-open span:before,
-#nav-open span:after {
-  position: absolute;
-  height: 5px;
-  width: 70px;
-  border-radius: 3px;
-  background: #555;
-  display: block;
-  content: "";
+
+.ham_icon {
   cursor: pointer;
-}
-#nav-open span:before {
-  bottom: -20px;
-}
-#nav-open span:after {
-  bottom: -40px;
-}
-
-#nav-close {
-  display: none;
-  position: fixed;
-  z-index: 99;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-  opacity: 0;
-  transition: 0.3s ease-in-out;
-}
-
-#nav-content {
-  overflow: auto;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  width: 90%;
-  max-width: 550px;
-  height: 100%;
-  background: #eeeeee;
-  transition: 0.3s ease-in-out;
-  -webkit-transform: translateX(-105%);
-  transform: translateX(-105%);
-}
-.contentName {
-  padding: 1.5rem;
-  font-size: 3rem;
-  background: white;
-  border-bottom: 2px solid #444444;
-}
-
-#nav-input:checked ~ #nav-close {
   display: block;
-  opacity: 0.5;
+  width: 55px;
+  height: 50px;
+  position: fixed;
+  left: 0;
 }
 
-#nav-input:checked ~ #nav-content {
-  -webkit-transform: translateX(0%);
-  transform: translateX(0%);
-  box-shadow: 6px 0 25px rgba(0, 0, 0, 0.15);
+.ham_icon .icon_parts1,
+.ham_icon .icon_parts2,
+.ham_icon .icon_parts3 {
+  background-color: #000;
+  display: block;
+  width: 25px;
+  height: 2px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
 }
 
-.rogo {
-  text-align: right;
-  /* line-height: 8rem; */
+.ham_icon .icon_parts1 {
+  top: 16px;
 }
-.logoImg {
-  margin-top: 1.5rem;
+
+.ham_icon .icon_parts3 {
+  top: -16px;
 }
-.newAndSearch {
-  font-size: 4rem;
-  margin-left: 10rem;
-  margin-right: 3rem;
+
+.ham_icon .icon_name,
+.ham_icon .icon_name2 {
+  position: absolute;
+  top: 38px;
+  left: 13px;
+  font-size: 1.2rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-.fa-pencil-alt {
-  padding-right: 2rem;
+
+.ham_icon .icon_name2 {
+  display: none;
 }
-.contentsBox {
-  padding-top: 120px;
+
+.ham_overlay {
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
   width: 100%;
-  margin: 0 auto;
-  box-shadow: 1px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.ham_menu {
+  background: #ffffff;
+  color: #000;
+  max-width: 100%;
+  width: 220px;
+  height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  position: fixed;
+  top: 0;
+  left: -220px;
+}
+
+.ham_menu ul {
+  margin-top: 100px;
+}
+
+.ham_icon {
+  z-index: 4;
+}
+
+.ham_menu {
+  z-index: 3;
+}
+
+.ham_overlay {
+  z-index: 2;
+}
+
+.ham_checkbox:checked ~ .ham_icon .icon_parts1 {
+  -webkit-transform: rotate(315deg);
+  transform: rotate(315deg);
+  top: 0;
+}
+
+.ham_checkbox:checked ~ .ham_icon .icon_parts2 {
+  left: 250%;
+  opacity: 0;
+}
+
+.ham_checkbox:checked ~ .ham_icon .icon_parts3 {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(405deg);
+  transform: rotate(405deg);
+  top: 0;
+}
+
+.ham_checkbox:checked ~ .ham_icon .icon_name {
+  display: none;
+}
+
+.ham_checkbox:checked ~ .ham_icon .icon_name2 {
+  display: block;
+}
+
+.ham_checkbox:checked ~ .ham_overlay {
+  opacity: 0.3;
+  pointer-events: auto;
+}
+
+.ham_checkbox:checked ~ .ham_menu {
+  left: 0;
+}
+
+.ham .icon_parts1,
+.ham .icon_parts2,
+.ham .icon_parts3,
+.ham .icon_name,
+.ham .icon_name2,
+.ham_overlay,
+.ham_menu {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+/* ハンバーガーメニューの中身*/
+.ham_item {
+  font-size: 1.8rem;
+  line-height: 3;
+  padding-left: 20px;
+}
+.ham_item a {
+  color: #333;
+  text-decoration: underline;
+}
+
+/* ロゴ */
+.logo {
+  text-align: center;
+  padding-top: 10px;
+}
+.logo img {
+  width: 180px;
+}
+
+/* メイン */
+.main {
+  padding-top: 90px;
+  background-color: #eaeaea;
 }
 .contentBox {
+  background-color: #fff;
   width: 100%;
-  margin: 1rem 0;
-  font-size: 30px;
-  background-color: white;
-  border-top: 1px solid #bbbbbb;
-  border-bottom: 1px solid #bbbbbb;
-}
-.contentInnerBox {
-  margin: 0 7rem;
-  padding: 1rem 0;
+  height: auto;
+  padding: 10px 20px 10px 20px;
+  margin-bottom: 10px;
 }
 .contentHeader {
+  font-size: 1.8rem;
   font-weight: bold;
 }
 .contentBody {
-  margin: 1rem 0 0.5rem 0;
-  font-size: 28px;
-  height: 120px;
+  margin-top: 10px;
+  line-height: 1.6;
 }
-.allTextBtton {
-  font-size: 24px;
-  color: #999999;
+.allTextBtton,
+.uploadTime {
+  color: #898989;
+  font-size: 1.5rem;
+}
+.userResult {
+  text-align: right;
+  margin-top: 10px;
 }
 
-.userResult {
-  font-size: 2.8rem;
-  text-align: right;
-  color: #555555;
+/* フッター */
+
+.under_nav {
+  width: 100%;
+  height: 50px;
+  top: calc(100vh - 50px);
+  position: fixed;
+  padding: 0 10px;
+  background-color: #fff;
 }
-.fa-comment-alt {
-  margin-left: 1.5rem;
+.under_menu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding-top: 5px;
 }
-.contentOption {
-  color: #999999;
+
+.under_item {
+  width: 60px;
+}
+.under_item p {
+  font-size: 5px;
+  line-height: 2;
+}
+.under_item a {
+  color: rgb(99, 99, 99);
+}
+.under_item i {
+  font-size: 2.5rem;
 }

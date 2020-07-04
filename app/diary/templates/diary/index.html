@@ -1,52 +1,66 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>社会人大学</title>
     <link rel="stylesheet" href="{% static 'diary/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'diary/style.css' %}" />
     <link
       href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="{% static 'diary/style.css' %}" />
   </head>
   <body>
-    <header>
-      <div id="nav-drawer">
-        <input id="nav-input" type="checkbox" class="nav-unshown" />
-        <label id="nav-open" for="nav-input"><span></span></label>
-        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
-        <div id="nav-content">
-          <div class="contentName">
-            朝礼日誌
-          </div>
-          <div class="contentName">
-            日記
-          </div>
-          <div class="contentName">
-            学則
-          </div>
-        </div>
+    <!-- ヘッダーエリア -->
+    <header class="header">
+      <!-- ハンバーガーエリア -->
+      <div class="ham">
+        <input class="ham_checkbox" id="hamCheckbox" type="checkbox" />
+        <!-- ハンバーガーアイコン -->
+        <label class="ham_icon" for="hamCheckbox">
+          <span class="icon_parts1"></span>
+          <span class="icon_parts2"></span>
+          <span class="icon_parts3"></span>
+          <p class="icon_name">menu</p>
+          <p class="icon_name2">close</p>
+        </label>
+        <!-- 背景を暗く -->
+        <label class="ham_overlay" for="hamCheckbox"></label>
+        <!-- ハンバーガーメニュー -->
+        <nav class="ham_menu">
+          <ul>
+            <li class="ham_item">
+              <a href="/">朝礼日誌</a>
+            </li>
+            <li class="ham_item">
+              <a href="/">日記</a>
+            </li>
+            <li class="ham_item">
+              <a href="/">学則</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <div class="rogo" name="rogo">
-        <img class="logoImg" src="{% static 'diary/demoRogo.png' %}" />
-        <span class="newAndSearch">
-          <i class="fas fa-pencil-alt"></i>
-          <i class="fas fa-search"></i>
-        </span>
+
+      <div class="logo">
+        <a href=""><img src="{% static 'images/logo.png'}" alt="" /></a>
       </div>
     </header>
-    <div class="contentsBox" name="contentsBox">
+
+    <!-- メインエリア -->
+    <main class="main">
+      <!-- 投稿１ -->
       <div class="contentBox" name="contentBox">
-        <div class="contentInnerBox">
+        <a href="">
           <span class="contentHeader" name="contentHeader">
-            <label>日直　長谷川海斗</label>
+            <label>日直 長谷川海斗</label>
           </span>
           <div class="contentBody" name="contentBody">
             みなさんおはようございます😁<br />
             本日の日直当番は、引越し回数が多い長谷川です‼️<br />
             本日は月曜ということで、...
-            <span class="allTextBtton">続きを読む</span>
           </div>
           <div class="userResult">
             <i class="far fa-heart">２</i>
@@ -57,140 +71,66 @@
               10:24
             </span>
           </div>
-        </div>
+        </a>
       </div>
+      <!-- 投稿２ -->
       <div class="contentBox" name="contentBox">
-        <div class="contentInnerBox">
+        <a href="">
           <span class="contentHeader" name="contentHeader">
-            <label>日直　高松まさや</label>
+            <label>日直 高松まさや</label>
           </span>
           <div class="contentBody" name="contentBody">
             皆さんおはようございます😁<br />
             本日から日直が朝の挨拶をするようにしたいと思います✨<br />
             朝からやる気を少しでも上げれたらいいなと...
-            <span class="allTextBtton">続きを読む</span>
-          </div>
-          <div class="userResult">
-            <i class="far fa-heart">３</i>
-            <i class="far fa-comment-alt">６</i>
-          </div>
-          <div class="contentOption" name="contentOption">
-            <span class="uploadTime" name="uploadTime">
-              1日前
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="contentBox" name="contentBox">
-        <div class="contentInnerBox">
-          <span class="contentHeader" name="contentHeader">
-            <label>日直　松田淳</label>
-          </span>
-          <div class="contentBody" name="contentBody">
-            おはようございます😁！<br />
-            徳島出身、元SEのアークス松田です！<br />
-            健康増進のためオフィスの5階までは...
-            <span class="allTextBtton">続きを読む</span>
           </div>
           <div class="userResult">
             <i class="far fa-heart">２</i>
-            <i class="far fa-comment-alt">３</i>
-          </div>
-          <div class="contentOption" name="contentOption">
-            <span class="uploadTime" name="uploadTime">
-              2日前
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="contentBox" name="contentBox">
-        <div class="contentInnerBox">
-          <span class="contentHeader" name="contentHeader">
-            <label>日直　菅　誉</label>
-          </span>
-          <div class="contentBody" name="contentBody">
-            おはようございます😁！<br />
-            生まれも育ちも大阪の菅です。<br />
-            ガースやすがちゃんなど呼ばれています...
-            <span class="allTextBtton">続きを読む</span>
-          </div>
-          <div class="userResult">
-            <i class="far fa-heart">６</i>
-            <i class="far fa-comment-alt">１</i>
-          </div>
-          <div class="contentOption" name="contentOption">
-            <span class="uploadTime" name="uploadTime">
-              3日前
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="contentBox" name="contentBox">
-        <div class="contentInnerBox">
-          <span class="contentHeader" name="contentHeader">
-            <label>日直　平井　健太</label>
-          </span>
-          <div class="contentBody" name="contentBody">
-            おはようございます😁！<br />
-            アークスの平井です！<br />
-            人材紹介業に約10年携わっております...
-            <span class="allTextBtton">続きを読む</span>
-          </div>
-          <div class="userResult">
-            <i class="far fa-heart">５</i>
-            <i class="far fa-comment-alt">２</i>
-          </div>
-          <div class="contentOption" name="contentOption">
-            <span class="uploadTime" name="uploadTime">
-              4日前
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="contentBox" name="contentBox">
-        <div class="contentInnerBox">
-          <span class="contentHeader" name="contentHeader">
-            <label>日直　戸川　大輝</label>
-          </span>
-          <div class="contentBody" name="contentBody">
-            おはようございます！<br />
-            アークスの戸川です<br />
-            今年の4月からアークスの一員として日々奮...
-            <span class="allTextBtton">続きを読む</span>
-          </div>
-          <div class="userResult">
-            <i class="far fa-heart">８</i>
-            <i class="far fa-comment-alt">９</i>
+            <i class="far fa-comment-alt">４</i>
           </div>
           <div class="contentOption" name="contentOption">
             <span class="uploadTime" name="uploadTime">
               10:24
             </span>
           </div>
-        </div>
+        </a>
       </div>
-      <div class="contentBox" name="contentBox">
-        <div class="contentInnerBox">
-          <span class="contentHeader" name="contentHeader">
-            <label>日直　蔦田</label>
-          </span>
-          <div class="contentBody" name="contentBody">
-            おはようございます！<br />
-            蔦田です。<br />
-            現在広告営業をしております...
-            <span class="allTextBtton">続きを読む</span>
-          </div>
-          <div class="userResult">
-            <i class="far fa-heart">８</i>
-            <i class="far fa-comment-alt">１</i>
-          </div>
-          <div class="contentOption" name="contentOption">
-            <span class="uploadTime" name="uploadTime">
-              10:24
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
+
+      <p style="margin-top: 100vh;">sample</p>
+      <p style="margin-top: 200vh;">sample</p>
+      <p style="margin-top: 300vh;">sample</p>
+    </main>
+
+    <footer>
+      <!-- アンダーナビゲーション -->
+      <nav class="under_nav">
+        <ul class="under_menu">
+          <li class="under_item">
+            <a href=""
+              ><i class="fas fa-home"></i>
+              <p>ホーム</p></a
+            >
+          </li>
+          <li class="under_item">
+            <a href=""
+              ><i class="fas fa-paper-plane"></i>
+              <p>投稿</p></a
+            >
+          </li>
+          <li class="under_item">
+            <a href=""
+              ><i class="fas fa-search"></i>
+              <p>検索</p></a
+            >
+          </li>
+          <li class="under_item">
+            <a href=""
+              ><i class="fas fa-user"></i>
+              <p>プロフィール</p></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </footer>
   </body>
 </html>
