@@ -35,6 +35,7 @@ a:active {
   top: 0;
   left: 0;
   background-color: #fff;
+  z-index: 100;
 }
 
 /*ハンバーガー*/
@@ -202,19 +203,30 @@ a:active {
 
 /* メイン */
 .main {
-  padding-top: 90px;
+  padding: 85px 0 200px;
   background-color: #eaeaea;
 }
 .contentBox {
   background-color: #fff;
   width: 100%;
   height: auto;
-  padding: 10px 20px 10px 20px;
-  margin-bottom: 10px;
+  padding: 10px;
+  margin-bottom: 2px;
+  position: relative;
 }
-.contentHeader {
+.contentHead {
+  display: flex;
+  align-items: center;
+}
+.contentHead h2 {
   font-size: 1.8rem;
   font-weight: bold;
+  margin: 25px 0 0 10px;
+}
+.uploadTime {
+  position: absolute;
+  top: 11px;
+  right: 11px;
 }
 .contentBody {
   margin-top: 10px;
@@ -230,12 +242,80 @@ a:active {
   margin-top: 10px;
 }
 
-/* フッター */
+/* show */
 
+.comment {
+  margin: 10px;
+}
+.commentBox {
+  display: inline-block;
+}
+.commentWrap {
+  display: inline-block;
+  background-color: #fff;
+  line-height: 1.5;
+  border-radius: 10px;
+  padding: 5px 8px;
+}
+.commentHead {
+  font-weight: bold;
+}
+.commentTime {
+  text-align: right;
+  display: block;
+  font-size: 1.4rem;
+  margin-top: 5px;
+}
+
+/* create */
+
+.form_list {
+  text-align: center;
+}
+.name input {
+  letter-spacing: 1px;
+  width: 180px;
+  height: 25px;
+}
+.category {
+  margin: 15px 0;
+}
+.category select {
+  height: 28px;
+}
+.article textarea {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  width: 95%;
+  height: 45vh;
+  font-family: "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体",
+    "YuGothic", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ",
+    "Meiryo", "verdana", sans-serif;
+}
+
+.button button {
+  color: #333;
+  font-size: 1.4rem;
+  letter-spacing: 5px;
+  margin-top: 35px;
+  padding-left: 15px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(150, 201, 245);
+  box-shadow: 2px 2px 1px rgb(117, 158, 181);
+  width: 90px;
+  height: 35px;
+}
+
+/* フッター */
+.footer {
+  z-index: 100;
+}
 .under_nav {
   width: 100%;
-  height: 50px;
-  top: calc(100vh - 50px);
+  height: 75px;
+  bottom: 0;
   position: fixed;
   padding: 0 10px;
   background-color: #fff;
@@ -247,14 +327,14 @@ a:active {
   display: flex;
   justify-content: space-between;
   text-align: center;
-  padding-top: 5px;
+  padding-top: 13px;
 }
 
 .under_item {
   width: 60px;
 }
 .under_item p {
-  font-size: 5px;
+  font-size: 1rem;
   line-height: 2;
 }
 .under_item a {
