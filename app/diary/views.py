@@ -16,11 +16,13 @@ def create(request):
 
 
 def form(request):
-  userName = request.POST['userName']
-  body = request.POST['body']
+  category = request.POST['category']
+  userName = request.POST['name']
+  body = request.POST['article']
   # analysisBody = analysis.langAnalysis(body)
   params = {
+    'category':category,
     'userName':userName,
-    'bodys':body,
+    'body':body,
   }
   return render(request, 'diary/result.html', params)
