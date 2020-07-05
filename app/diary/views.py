@@ -11,9 +11,9 @@ def index(request):
 def form(request):
   userName = request.POST['userName']
   body = request.POST['body']
-  analysisBody = analysis.langAnalysis(body)
+  # analysisBody = analysis.langAnalysis(body)
   params = {
     'userName':userName,
-    'bodys':analysisBody,
+    'bodys':body,
   }
   return render(request, 'diary/result.html', params)
