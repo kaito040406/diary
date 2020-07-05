@@ -127,8 +127,8 @@ USE_TZ = True
 STATIC_URL = '/staticfiles/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR 
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = BASE_DIR 
 
 AUTH_USER_MODEL = "diary.job_t_user" 
 
