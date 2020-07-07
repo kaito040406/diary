@@ -54,26 +54,13 @@
       <!-- 投稿 -->
       <section class="contentBox">
         <div class="contentHead">
-          <h2>長谷川海斗【日直】</h2>
-          <span class="uploadTime">7月5日 10:24</span>
+          <h2>{{diary.writer_name}}【日直】</h2>
+          <span class="uploadTime"
+            >{{diary.create_day|date:"Y年n月j日g時m分"}}</span
+          >
         </div>
         <p class="contentBody">
-          みなさんおはようございます😁<br />
-          本日の日直当番は、引越し回数が多い長谷川です‼️<br />
-          本日は月曜ということで、素数についてお話しします。<br />
-          素数（そすう、英: prime number）とは、1 より大きい自然数で、正の約数が
-          1 と自分自身のみであるもののことである。正の約数の個数が 2
-          である自然数と言い換えることもできる。1
-          より大きい自然数で素数でないものは合成数と呼ばれる。<br />
-          一般には、素数は代数体の整数環の素元として定義される（そこでは反数などの同伴なものも素数に含まれる）。このため、有理整数環
-          {\displaystyle \mathbb {Z} }{\mathbb Z}
-          での素数は有理素数（ゆうりそすう、英: rational
-          prime）と呼ばれることもある。<br />
-          最小の素数は 2
-          である。素数は無数に存在する。したがって、素数からなる無限数列が得られる。<br />
-          2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, …
-          素数が無数に存在することは、紀元前3世紀頃のユークリッドの著書『原論』で既に証明されていた。<br />
-          自然数あるいは実数の中での素数の分布の様子は高度に非自明で、リーマン予想などの現代数学の重要な問題との興味深い結び付きが発見されている。
+          {{diary.diary | linebreaksbr}}
         </p>
         <div class="userResult">
           <i class="far fa-heart">２</i>
@@ -81,75 +68,57 @@
         </div>
       </section>
 
-      <section class="comment">
-        <div class="commentBox">
-        <div class="commentWrap">
-          <h3 class="commentHead">山田太郎</h3>
-          <p class="commentBody">
-            素数は本当に素晴らしいですね😁<br />
-          </p>
-        </div>
-        <span class="commentTime">1時間前</span>
-      </div>
+      <section class="comment_form">
+        <form method="post" action="commentform/{{diary.id}}">
+          {% csrf_token %}
+          <ul class="comment_list">
+            <li class="comment_name">
+              <label for="commenter">名前</label>
+              <input type="text" id="commenter" name="name" />
+            </li>
+            <li class="comment_word">
+              <textarea name="comment" placeholder="コメント"></textarea>
+            </li>
+            <li class="cbutton">
+              <button type="submit">送信</button>
+            </li>
+          </ul>
+        </form>
       </section>
-    
-      <section class="comment">
+      {% for comment in comments %}
+      <div class="comment">
         <div class="commentBox">
-        <div class="commentWrap">
-          <h3 class="commentHead">山田花子</h3>
-          <p class="commentBody">
-            私も素数が大好きです！<br />
-            見てると自然と笑顔になっちゃいます😊‼︎
-          </p>
+          <div class="commentWrap">
+            <h3 class="commentHead">{{comment.commenter_name}}</h3>
+            <p class="commentBody">{{comment.comment}}<br /></p>
+          </div>
+          <span class="commentTime"
+            >{{comment.create_day|date:"Y年n月j日g時m分"}}</span
+          >
         </div>
-        <span class="commentTime">2時間前</span>
       </div>
-      </section>
+      {% endfor %}
 
-      <section class="comment">
-        <div class="commentBox">
-        <div class="commentWrap">
-          <h3 class="commentHead">山田エンジェルディスタンスコンスタンティノープル花子</h3>
-          <p class="commentBody">
-            可愛いですね〜💕🐱<br />
-            でもゴメンなさい🙏 私は🐶イヌ派で〜す笑👍✨😁🐈🐈
-          </p>
+      <!-- <li id="search-drawer" class="under_item">
+        <input id="search-input" type="checkbox" class="search-unshown">
+        <label id="search-open" for="search-input"><i class="fas fa-search"></i>検索
+        </label>
+        <label class="search-unshown" id="search-close" for="search-input"></label>
+
+        <div id="search-content">
+          <form action="" method="post" class="search_form">
+            <input type="search" name="search" placeholder="キーワードを入力">
+            <button type="submit">検索</button>
+           </form>
         </div>
-        <span class="commentTime">3時間前</span>
-      </div>
-      </section>
+      </li> -->
 
-      <section class="comment">
-        <div class="commentBox">
-        <div class="commentWrap">
-          <h3 class="commentHead">tt</h3>
-          <p class="commentBody">
-            ok
-          </p>
-        </div>
-        <span class="commentTime">3時間前</span>
-      </div>
-      </section>
-
-      <section class="comment">
-        <div class="commentBox">
-        <div class="commentWrap">
-          <h3 class="commentHead">boo</h3>
-          <p class="commentBody">
-            2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, …
-          素数が無数に存在することは、紀元前3世紀頃のユークリッドの著書『原論』で既に証明されていた。<br>
-          自然数あるいは実数の中での素数の分布の様子は高度に非自明で、リーマン予想などの現代数学の重要な問題との興味深い結び付きが発見されている。
-          </p>
-        </div>
-        <span class="commentTime">3時間前</span>
-      </div>
-     
-     
-
-   
-
-     
-      
+      <!-- <li class="under_item">
+        <a href=""
+          ><i class="fas fa-search"></i>
+          <p>検索</p></a
+        >
+      </li> -->
     </main>
 
     <footer>
@@ -163,16 +132,33 @@
             >
           </li>
           <li class="under_item">
-            <a href="/diary/create"
+            <a href="create"
               ><i class="fas fa-paper-plane"></i>
               <p>投稿</p></a
             >
           </li>
-          <li class="under_item">
-            <a href=""
+          <li id="search-drawer" class="under_item">
+            <input id="search-input" type="checkbox" class="search-unshown" />
+            <label id="search-open" for="search-input"
               ><i class="fas fa-search"></i>
-              <p>検索</p></a
-            >
+              <p>検索</p>
+            </label>
+            <label
+              class="search-unshown"
+              id="search-close"
+              for="search-input"
+            ></label>
+
+            <div id="search-content">
+              <form action="" method="post" class="search_form">
+                <input
+                  type="search"
+                  name="search"
+                  placeholder="キーワードを入力"
+                />
+                <button type="submit">検索</button>
+              </form>
+            </div>
           </li>
           <li class="under_item">
             <a href=""

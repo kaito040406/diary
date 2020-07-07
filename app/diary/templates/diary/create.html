@@ -60,11 +60,12 @@
           </li>
           <li class="category">
             <label for="categories">カテゴリー：</label>
-            <select name="category" id="categories">
-              <option>カテゴリー１</option>
-              <option>カテゴリー２</option>
-              <option>カテゴリー３</option>
-              <option>カテゴリー４</option>
+            <select name="category_id" id="categories">
+              {% for category in categories %}
+              <option value="{{category.id}}"
+                >{{category.category_text}}</option
+              >
+              {% endfor %}
             </select>
           </li>
           <li class="article">
