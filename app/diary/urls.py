@@ -6,7 +6,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('show/<int:num>', views.show, name='show'),
     path('create', views.create, name='create'),
-    path('form', views.form, name='form'),
+    path('form', views.diaryForm, name='diaryForm'),
     path('show/commentform/<int:num>', views.commentForm, name='commentForm'),
 ]
 

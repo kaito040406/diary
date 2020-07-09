@@ -18,6 +18,7 @@ class job_t_diary(models.Model):
   delete_frg = models.IntegerField(default=0,null=False)
   create_day = models.DateTimeField('date published')
   like_number = models.IntegerField(default=0)
+  comment_number = models.IntegerField(default=0)
 
 class job_t_comment(models.Model):
   commenter_name = models.CharField(max_length=20,null=False,error_messages={'required': '必須です!'})

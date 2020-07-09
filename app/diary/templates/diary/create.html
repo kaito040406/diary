@@ -55,8 +55,9 @@
         {% csrf_token %}
         <ul class="form_list">
           <li class="name">
-            <label for="user_name">名前：</label>
-            <input type="text" id="user_name" name="name" />
+            <!-- <label for="user_name">名前：</label>
+            <input type="text" id="user_name" name="name" /> -->
+            {{nameForm}}
           </li>
           <li class="category">
             <label for="categories">カテゴリー：</label>
@@ -69,10 +70,11 @@
             </select>
           </li>
           <li class="article">
-            <textarea
+            <!-- <textarea
               name="article"
               placeholder="ここに記事を書いてください"
-            ></textarea>
+            ></textarea> -->
+            {{diaryForm}}
           </li>
           <li class="button">
             <button type="submit">送信</button>

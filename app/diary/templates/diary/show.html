@@ -64,7 +64,7 @@
         </p>
         <div class="userResult">
           <i class="far fa-heart">２</i>
-          <i class="far fa-comment-alt">４</i>
+          <i class="far fa-comment-alt"> {{diary.comment_number}}</i>
         </div>
       </section>
 
@@ -73,11 +73,13 @@
           {% csrf_token %}
           <ul class="comment_list">
             <li class="comment_name">
-              <label for="commenter">名前</label>
-              <input type="text" id="commenter" name="name" />
+              <!-- <label for="commenter">名前</label>
+              <input type="text" id="commenter" name="name" /> -->
+              {{nameForm}}
             </li>
             <li class="comment_word">
-              <textarea name="comment" placeholder="コメント"></textarea>
+              <!-- <textarea name="comment" placeholder="コメント"></textarea> -->
+              {{commentForm}}
             </li>
             <li class="cbutton">
               <button type="submit">送信</button>
@@ -132,7 +134,7 @@
             >
           </li>
           <li class="under_item">
-            <a href="create"
+            <a href="/diary/create"
               ><i class="fas fa-paper-plane"></i>
               <p>投稿</p></a
             >
