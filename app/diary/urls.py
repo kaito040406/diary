@@ -8,6 +8,7 @@ urlpatterns = [
     path('create', views.create, name='create'),
     path('form', views.diaryForm, name='diaryForm'),
     path('show/commentform/<int:num>', views.commentForm, name='commentForm'),
+    path('search', views.searchForm, name='search'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

@@ -8,7 +8,7 @@ from .models import job_t_diary
 from .models import job_t_comment
 from datetime import datetime
 from .forms import DiaryForm
-from .forms import nameForm
+from .forms import NameForm
 from .forms import CommentForm
 from .forms import CommnterName
 
@@ -18,7 +18,8 @@ from .forms import CommnterName
 def index(request):
   diaries = job_t_diary.objects.order_by('create_day')#日誌データを取得
   params={
-    'diaries':diaries
+    'diaries':diaries,
+    'from':'index'
   }
   return render(request, 'diary/index.html', params)
 
@@ -38,7 +39,7 @@ def show(request, num):
 
 def create(request):
   categories = job_m_category.objects.all()
-  name = nameForm()
+  name = NameForm()
   Diary = DiaryForm()
   params={
     'categories':categories,
@@ -75,4 +76,17 @@ def commentForm(request, num):
   diary_id.comment_number = commentLength
   diary_id.save()
   response = redirect('/diary/show/'+str(num))
+  return response
+
+def searchForm(request):
+  searchWord = request.POST["search"]
+  if searchWord == "":
+    response = redirect('/diary')
+  else:
+    hit_data = job_t_diary.objects.filter(writer_name__contains=searchWord).order_by('create_day')
+    params={
+      'diaries':hit_data,
+      'from':'search'
+    }
+    response = render(request, 'diary/index.html', params)
   return response

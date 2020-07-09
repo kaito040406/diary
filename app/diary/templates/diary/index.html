@@ -53,7 +53,11 @@
     <main class="main">
       <!-- 投稿１ -->
       <!-- 日誌の数により、ループを作成 -->
-      {% for diary in diaries %}
+      {% if diaries|length == 0%} {% if from == 'index' %}
+      <div class="contentBox" name="contentBox">日誌はありません</div>
+      {% elif from == 'search'%}
+      <div class="contentBox" name="contentBox">検索でヒットしませんでした</div>
+      {%endif%} {% else %} {% for diary in diaries %}
       <div class="contentBox" name="contentBox">
         <a href="{% url 'show' diary.id  %}">
           <span class="contentHeader" name="contentHeader">
@@ -73,7 +77,7 @@
           </div>
         </a>
       </div>
-      {% endfor %}
+      {% endfor %} {% endif %}
       <!-- 
       <p style="margin-top: 100vh;">sample</p>
       <p style="margin-top: 200vh;">sample</p>
@@ -109,11 +113,18 @@
             ></label>
 
             <div id="search-content">
-              <form action="" method="post" class="search_form">
+              <form
+                action="/diary/search"
+                method="post"
+                class="search_form"
+                name=""
+              >
+                {% csrf_token %}
                 <input
                   type="search"
                   name="search"
                   placeholder="キーワードを入力"
+                  maxlength="30"
                 />
                 <button type="submit">検索</button>
               </form>

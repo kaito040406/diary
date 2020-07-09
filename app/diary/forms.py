@@ -1,6 +1,6 @@
 from django import forms
 
-class nameForm(forms.Form):
+class NameForm(forms.Form):
   user_name = forms.CharField(label='名前：', max_length=20,required=True)
 
   def __init__(self, *args, **kwargs):
