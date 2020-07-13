@@ -57,7 +57,7 @@
           <li class="name">
             <!-- <label for="user_name">名前：</label>
             <input type="text" id="user_name" name="name" /> -->
-            {{nameForm}}
+            {{ formName.user_name.errors }} {{nameForm}}
           </li>
           <li class="category">
             <label for="categories">カテゴリー：</label>
@@ -74,7 +74,7 @@
               name="article"
               placeholder="ここに記事を書いてください"
             ></textarea> -->
-            {{diaryForm}}
+            {{ formDiary.article.errors }} {{diaryForm}}
           </li>
           <li class="button">
             <button type="submit">送信</button>

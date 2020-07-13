@@ -39,12 +39,28 @@ def show(request, num):
 
 def create(request):
   categories = job_m_category.objects.all()
-  name = NameForm()
-  Diary = DiaryForm()
+  if 'name' in request.session and 'body' in request.session and 'formName' in request.session and 'formDiary' in request.session:
+    errorName = request.session['name']
+    errorDiary = request.session['body']
+    formName = request.session['formName']
+    formDiary = request.session['formDiary']
+    del request.session['name']
+    del request.session['body']
+    del request.session['formName']
+    del request.session['formDiary']
+    name = NameForm({'user_name':errorName})
+    Diary = DiaryForm({'article':errorDiary})
+  else:
+    name = NameForm()
+    Diary = DiaryForm()
+    formName = ""
+    formDiary = ""
   params={
     'categories':categories,
     'nameForm':name,
-    'diaryForm':Diary
+    'diaryForm':Diary,
+    'formName':formName,
+    'formDiary':formDiary
   }
   return render(request, 'diary/create.html', params)
 
@@ -55,12 +71,19 @@ def diaryForm(request):
     category = job_m_category.objects.get(id=category_id)
     userName = request.POST['user_name']#非ログイン時は入力した名前
     body = request.POST['article']
-    user_id = 0 #非ログイン時のuser_idは0となる
-    title = '日直日誌'
-    createDay = datetime.now()
-    diaryDate = job_t_diary(writer_name = userName, user_id=user_id, title=title, diary=body, category_id=category, create_day=createDay ,delete_frg=0, like_number=0, comment_number=0)
-    diaryDate.save()
-    return redirect(to='/diary')
+    if NameForm(request.POST).is_valid() and DiaryForm(request.POST).is_valid():
+      user_id = 0 #非ログイン時のuser_idは0となる
+      title = '日直日誌'
+      createDay = datetime.now()
+      diaryDate = job_t_diary(writer_name = userName, user_id=user_id, title=title, diary=body, category_id=category, create_day=createDay ,delete_frg=0, like_number=0, comment_number=0)
+      diaryDate.save()
+      return redirect(to='/diary')
+    else:
+      request.session['name'] = userName
+      request.session['body'] = body
+      request.session['formName'] = NameForm(request.POST).errors
+      request.session['formDiary'] = DiaryForm(request.POST).errors
+      return redirect('/diary/create')
   except Exception as e:
     return HttpResponse("システムエラー発生")
 
