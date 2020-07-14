@@ -1,0 +1,35 @@
+{% load static %}
+<header class="header">
+  <!-- ハンバーガーエリア -->
+  <div class="ham">
+    <input class="ham_checkbox" id="hamCheckbox" type="checkbox" />
+    <!-- ハンバーガーアイコン -->
+    <label class="ham_icon" for="hamCheckbox">
+      <span class="icon_parts1"></span>
+      <span class="icon_parts2"></span>
+      <span class="icon_parts3"></span>
+      <p class="icon_name">menu</p>
+      <p class="icon_name2">close</p>
+    </label>
+    <!-- 背景を暗く -->
+    <label class="ham_overlay" for="hamCheckbox"></label>
+    <!-- ハンバーガーメニュー -->
+    <nav class="ham_menu">
+      <ul>
+        <li class="ham_item">
+          <a href="/">朝礼日誌</a>
+        </li>
+        <li class="ham_item">
+          <a href="/">日記</a>
+        </li>
+        <li class="ham_item">
+          <a href="/">学則</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="logo">
+    <a href=""><img src="{% static 'diary/logo.png' %}" alt="" /></a>
+  </div>
+</header>

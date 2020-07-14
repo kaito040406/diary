@@ -26,13 +26,29 @@ def index(request):
 def show(request, num):
   diary = job_t_diary.objects.get(id=num)
   comments = job_t_comment.objects.filter(comment_diary_id=num).order_by('create_day')
-  name = CommnterName()
-  commentForm = CommentForm()
+  if 'commenter' in request.session and 'comment' in request.session and 'formCommenter' in request.session and 'formComment' in request.session:
+    errorCommenter = request.session['commenter']
+    errorComment = request.session['comment']
+    formCommenter = request.session['formCommenter']
+    formComment = request.session['formComment']
+    del request.session['commenter']
+    del request.session['comment']
+    del request.session['formCommenter']
+    del request.session['formComment']
+    name = CommnterName({'commenter':errorCommenter})
+    commentForm = CommentForm({'comment':errorComment})
+  else:
+    name = CommnterName()
+    commentForm = CommentForm()
+    formCommenter = ""
+    formComment = ""
   params={
     'diary':diary,
     'comments':comments,
     'nameForm':name,
-    'commentForm':commentForm
+    'commentForm':commentForm,
+    'formName':formCommenter,
+    'formComment':formComment
   }
   # 何時間前の機能をつける
   return render(request, 'diary/show.html',params)
@@ -90,16 +106,22 @@ def diaryForm(request):
 def commentForm(request, num):
   commenterName = request.POST['commenter']
   comment = request.POST['comment']
-  user_id = 0
-  diary_id = job_t_diary.objects.get(id=num)
-  createDay = datetime.now()
-  commentLength = int(diary_id.comment_number) + 1
-  commentDate = job_t_comment(commenter_name = commenterName, user_id = user_id, comment = comment, delete_frg = 0, comment_diary_id = diary_id, create_day = createDay)
-  commentDate.save()
-  diary_id.comment_number = commentLength
-  diary_id.save()
-  response = redirect('/diary/show/'+str(num))
-  return response
+  if CommnterName(request.POST).is_valid() and CommentForm(request.POST).is_valid():
+    user_id = 0
+    diary_id = job_t_diary.objects.get(id=num)
+    createDay = datetime.now()
+    commentLength = int(diary_id.comment_number) + 1
+    commentDate = job_t_comment(commenter_name = commenterName, user_id = user_id, comment = comment, delete_frg = 0, comment_diary_id = diary_id, create_day = createDay)
+    commentDate.save()
+    diary_id.comment_number = commentLength
+    diary_id.save()
+    return redirect('/diary/show/'+str(num))
+  else:
+    request.session['commenter'] = commenterName
+    request.session['comment'] = comment
+    request.session['formCommenter'] = CommnterName(request.POST).errors
+    request.session['formComment'] = CommentForm(request.POST).errors
+    return redirect('/diary/show/'+str(num))
 
 def searchForm(request):
   searchWord = request.POST["search"]

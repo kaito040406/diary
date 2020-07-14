@@ -8,8 +8,8 @@ class NameForm(forms.Form):
     user_name = self.cleaned_data['user_name']
     if user_name == "":
       raise forms.ValidationError("お名前を入力してください")
-    elif len(user_name) >= 21:
-      raise forms.ValidationError("20文字以内で入力してください")
+    elif len(user_name) >= 11:
+      raise forms.ValidationError("10文字以内で入力してください")
     return user_name
 
   def __init__(self, *args, **kwargs):
@@ -23,7 +23,7 @@ class DiaryForm(forms.Form):
     article = self.cleaned_data['article']
     if article == "":
       raise forms.ValidationError("日誌を入力してください")
-    elif len(article) >= 1001:
+    elif len(article) >= 501:
       raise forms.ValidationError("全角500文字以内で入力してください")
     return article
 
@@ -32,14 +32,30 @@ class DiaryForm(forms.Form):
     super().__init__(*args, **kwargs)
 
 class CommnterName(forms.Form):
-  commenter = forms.CharField(label='名前：', max_length=20,required=True)
+  commenter = forms.CharField(label='名前：', max_length=20,required=False)
+
+  def clean_commenter(self):
+    commenter = self.cleaned_data['commenter']
+    if commenter == "":
+      raise forms.ValidationError("お名前を入力してください")
+    elif len(commenter) >= 11:
+      raise forms.ValidationError("10文字以内で入力してください")
+    return commenter
 
   def __init__(self, *args, **kwargs):
     kwargs.setdefault('label_suffix', '')
     super().__init__(*args, **kwargs)
 
 class CommentForm(forms.Form):
-  comment = forms.CharField(widget=forms.Textarea(attrs={'placeholder':'コメント'}), label='', max_length=1000,required=True)
+  comment = forms.CharField(widget=forms.Textarea(attrs={'placeholder':'コメント'}), label='', max_length=1000,required=False)
+
+  def clean_comment(self):
+    comment = self.cleaned_data['comment']
+    if comment == "":
+      raise forms.ValidationError("コメントを入力してください")
+    elif len(comment) >= 501:
+      raise forms.ValidationError("全角500文字以内で入力してください")
+    return comment
 
   def __init__(self, *args, **kwargs):
     kwargs.setdefault('label_suffix', '')
