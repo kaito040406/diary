@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'account',
     'diary',
 ]
 
@@ -130,5 +131,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/staticmedias/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'staticmedias')
 
-AUTH_USER_MODEL = "diary.job_t_user" 
+AUTH_USER_MODEL = "account.job_t_user" 
 
