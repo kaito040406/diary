@@ -1,0 +1,299 @@
+/*ヘッダー*/
+
+.header {
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 100;
+}
+
+/*ハンバーガー*/
+.ham {
+  position: relative;
+}
+
+.ham_checkbox {
+  display: none;
+}
+
+.ham_icon {
+  cursor: pointer;
+  display: block;
+  width: 55px;
+  height: 50px;
+  position: fixed;
+  left: 0;
+}
+
+.ham_icon .icon_parts1,
+.ham_icon .icon_parts2,
+.ham_icon .icon_parts3 {
+  background-color: #000;
+  display: block;
+  width: 25px;
+  height: 2px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.ham_icon .icon_parts1 {
+  top: 16px;
+}
+
+.ham_icon .icon_parts3 {
+  top: -16px;
+}
+
+.ham_icon .icon_name,
+.ham_icon .icon_name2 {
+  position: absolute;
+  top: 35px;
+  left: 15px;
+  letter-spacing: 0px;
+  font-size: 1rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.ham_icon .icon_name2 {
+  display: none;
+}
+
+.ham_overlay {
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.ham_menu {
+  background: #ffffff;
+  color: #000;
+  max-width: 100%;
+  width: 220px;
+  height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  position: fixed;
+  top: 0;
+  left: -220px;
+}
+
+.ham_menu ul {
+  margin-top: 100px;
+}
+
+.ham_icon {
+  z-index: 4;
+}
+
+.ham_menu {
+  z-index: 3;
+}
+
+.ham_overlay {
+  z-index: 2;
+}
+
+.ham_checkbox:checked ~ .ham_icon .icon_parts1 {
+  -webkit-transform: rotate(315deg);
+  transform: rotate(315deg);
+  top: 0;
+}
+
+.ham_checkbox:checked ~ .ham_icon .icon_parts2 {
+  left: 250%;
+  opacity: 0;
+}
+
+.ham_checkbox:checked ~ .ham_icon .icon_parts3 {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(405deg);
+  transform: rotate(405deg);
+  top: 0;
+}
+
+.ham_checkbox:checked ~ .ham_icon .icon_name {
+  display: none;
+}
+
+.ham_checkbox:checked ~ .ham_icon .icon_name2 {
+  display: block;
+}
+
+.ham_checkbox:checked ~ .ham_overlay {
+  opacity: 0.3;
+  pointer-events: auto;
+}
+
+.ham_checkbox:checked ~ .ham_menu {
+  left: 0;
+}
+
+.ham .icon_parts1,
+.ham .icon_parts2,
+.ham .icon_parts3,
+.ham .icon_name,
+.ham .icon_name2,
+.ham_overlay,
+.ham_menu {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+/* ハンバーガーメニューの中身*/
+.ham_item {
+  font-size: 1.8rem;
+  line-height: 3;
+  padding-left: 20px;
+}
+.ham_item a {
+  color: #333;
+  border-bottom: 2px solid #83b9e4;
+}
+
+/* ロゴ */
+.logo {
+  text-align: center;
+  padding-top: 10px;
+}
+.logo img {
+  width: 180px;
+}
+
+
+/* フッター */
+.footer{
+  z-index:100;
+}
+.under_nav {
+  width: 100%;
+  height: 59px;
+  bottom: 0;
+  position: fixed;
+  padding: 0 15px;
+  background-color: #fff;
+}
+.under_menu {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding-top: 5px;
+  /* padding-bottom: 10px; */
+}
+
+.under_item {
+  width: 65px;
+  color: rgb(99, 99, 99);
+}
+.under_item p {
+  font-size: 1rem;
+  line-height: 1.3;
+  cursor: pointer;
+
+}
+.under_item a {
+  color: rgb(99, 99, 99);
+}
+.under_item i {
+  font-size: 2.5rem;
+  cursor: pointer;
+
+}
+
+#search-drawer {
+  position: relative;
+}
+.search-unshown {
+  display:none;
+}
+/*閉じる用の薄黒カバー*/
+#search-close {
+  display: none;
+  position: fixed;
+  z-index: 99;
+  top: 0;/*全体に広がるように*/
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  transition: .3s ease-in-out;
+}
+
+/*中身*/
+#search-content {
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;/*最前面に*/
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  transition: .3s ease-in-out;
+  -webkit-transform: translateY(105%);
+  transform: translateY(105%);
+}
+
+/*チェックが入ったら表示*/
+#search-input:checked ~ #search-close {
+  display: block;
+  opacity: .5;
+}
+#search-input:checked ~ #search-content {
+  -webkit-transform: translateY(89%);
+  transform: translateY(89%);
+  box-shadow: 6px 0 25px rgba(0,0,0,.15);
+}
+
+.search_form {
+  position: relative;
+  top: 3%;
+
+  
+}
+.search_form input {
+  height: 30px;
+  width: 210px;
+  font-family: inherit;
+  font-size : 16px;
+  border : 1px solid rgb(99, 99, 99);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgb(250, 173, 204);
+}
+.search_form input[type="search"]:focus {
+  outline: 0;
+  border: 0.5px solid rgb(250, 173, 204);
+  box-shadow: 0 0 5px rgb(250, 173, 204);
+  -webkit-box-shadow: 0 0 5px rgb(250, 173, 204);
+}
+.search_form button{
+  color: #333;
+  font-size: 1.4rem;
+  margin-left: 8px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(245, 150, 188);
+  box-shadow: 1px 1px 1px  rgb(249, 145, 187);
+}
