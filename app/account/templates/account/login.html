@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>社会人大学</title>
+    <link rel="stylesheet" href="{% static 'account/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'account/inc.css' %}" />
+    <link rel="stylesheet" href="{% static 'account/login-signup.css' %}" />
+    <link
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ヘッダーエリア -->
+    <header class="header">
+      <!-- ハンバーガーエリア -->
+      <div class="ham">
+        <input class="ham_checkbox" id="hamCheckbox" type="checkbox" />
+        <!-- ハンバーガーアイコン -->
+        <label class="ham_icon" for="hamCheckbox">
+          <span class="icon_parts1"></span>
+          <span class="icon_parts2"></span>
+          <span class="icon_parts3"></span>
+          <p class="icon_name">menu</p>
+          <p class="icon_name2">close</p>
+        </label>
+        <!-- 背景を暗く -->
+        <label class="ham_overlay" for="hamCheckbox"></label>
+        <!-- ハンバーガーメニュー -->
+        <nav class="ham_menu">
+          <ul>
+            <li class="ham_item">
+              <a href="/">朝礼日誌</a>
+            </li>
+            <li class="ham_item">
+              <a href="/">日記</a>
+            </li>
+            <li class="ham_item">
+              <a href="/">学則</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="logo">
+        <a href=""><img src="{% static 'diary/logo.png' %}" alt="" /></a>
+      </div>
+    </header>
+
+    <main class="login">
+      <div class="login_box">
+        <h1>Welcome</h1>
+
+        <form class="login_form">
+          <input type="text" placeholder="ID" />
+          <input type="password" placeholder="パスワード" />
+          <button type="submit" id="login_button">ログイン</button>
+        </form>
+      </div>
+
+      <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </main>
+
+    <footer>
+      <!-- アンダーナビゲーション -->
+      <nav class="under_nav">
+        <ul class="under_menu">
+          <li class="under_item">
+            <a href=""
+              ><i class="fas fa-home"></i>
+              <p>ホーム</p></a
+            >
+          </li>
+          <li class="under_item">
+            <a href=""
+              ><i class="fas fa-paper-plane"></i>
+              <p>投稿</p></a
+            >
+          </li>
+          <li id="search-drawer" class="under_item">
+            <input id="search-input" type="checkbox" class="search-unshown" />
+            <label id="search-open" for="search-input"
+              ><i class="fas fa-search"></i>
+              <p>検索</p>
+            </label>
+            <label
+              class="search-unshown"
+              id="search-close"
+              for="search-input"
+            ></label>
+
+            <div id="search-content">
+              <form action="" method="post" class="search_form">
+                <input
+                  type="search"
+                  name="search"
+                  placeholder="キーワードを入力"
+                />
+                <button type="submit">検索</button>
+              </form>
+            </div>
+          </li>
+          <li class="under_item">
+            <a href=""
+              ><i class="fas fa-user"></i>
+              <p>プロフィール</p></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>
