@@ -16,7 +16,7 @@ from .forms import CommnterName
 
 # Create your views here.
 def index(request):
-  diaries = job_t_diary.objects.order_by('create_day')#日誌データを取得
+  diaries = job_t_diary.objects.order_by('-create_day')#日誌データを取得
   params={
     'diaries':diaries,
     'from':'index'
