@@ -1,10 +1,11 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from django.contrib.auth.forms import UserCreationForm
 import unicodedata
 import re
 
 class idForm(forms.Form):
-  idForm = forms.CharField(label='', max_length=30, min_length=6, required=False, attrs={'placeholder':'ID'})
+  idForm = forms.CharField(label='', max_length=30, min_length=6, required=False)
 
   def clean_idForm(self):
     idForm = self.cleaned_data['idForm']
@@ -22,7 +23,7 @@ class idForm(forms.Form):
     super().__init__(*args, **kwargs)
 
 class passForm(forms.Form):
-  passForm = forms.CharField(label='', max_length=30, min_length=8, required=False, attrs={'placeholder':'パスワード'})
+  passForm = forms.CharField(label='', max_length=30, min_length=8, required=False)
 
   def clean_passForm(self):
     passForm = self.cleaned_data['passForm']
@@ -34,6 +35,24 @@ class passForm(forms.Form):
       if re.match("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", passForm) == None:
         raise forms.ValidationError("半角英数字で入力してください")
     return passForm
+
+  def __init__(self, *args, **kwargs):
+    kwargs.setdefault('label_suffix', '')
+    super().__init__(*args, **kwargs)
+
+class passForm_a(forms.Form):
+  passForm_a = forms.CharField(label='', max_length=30, min_length=8, required=False)
+
+  def clean_passForm_a(self):
+    passForm_a = self.cleaned_data['passForm_a']
+    if passForm_a == "":
+      raise forms.ValidationError("IDを入力してください")
+    elif len(passForm_a) >= 30 or len(passForm_a) <= 7:
+      raise forms.ValidationError("8字以上30字以内で入力してください")
+    elif re.match(r"^[\x20-\x7E]+$", passForm_a) == None or re.match(r"^\w+$", passForm_a) == None or re.search(r'\d', passForm_a) == None:
+      if re.match("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", passForm_a) == None:
+        raise forms.ValidationError("半角英数字で入力してください")
+    return passForm_a
 
   def __init__(self, *args, **kwargs):
     kwargs.setdefault('label_suffix', '')

@@ -1,9 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth import get_user_model
 
 # Create your models here.
 
-class job_t_user(AbstractUser):
+class job_t_user(models.Model):
+  user_id = models.ForeignKey(get_user_model(),on_delete=models.CASCADE,null=False)
   admin_level = models.IntegerField(null=False, default=1)
   del_flg = models.IntegerField(null=False,default=0)
   user_name = models.CharField(max_length=20,null=False)

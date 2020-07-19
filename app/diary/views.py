@@ -111,7 +111,7 @@ def commentForm(request, num):
     diary_id = job_t_diary.objects.get(id=num)
     createDay = datetime.now()
     commentLength = int(diary_id.comment_number) + 1
-    commentDate = job_t_comment(commenter_name = commenterName, user_id = user_id, comment = comment, delete_frg = 0, comment_diary_id = diary_id, create_day = createDay)
+    commentDate = job_t_comment(commenter_name = commenterName, user_id = user_id, comment = comment, delete_frg = 0, comment_diary_id = diary_id.id, create_day = createDay)
     commentDate.save()
     diary_id.comment_number = commentLength
     diary_id.save()
