@@ -5,7 +5,7 @@ import unicodedata
 import re
 
 class idForm(forms.Form):
-  idForm = forms.CharField(label='', max_length=30, min_length=6, required=False)
+  idForm = forms.CharField(label='',required=False)
 
   def clean_idForm(self):
     idForm = self.cleaned_data['idForm']
@@ -23,12 +23,12 @@ class idForm(forms.Form):
     super().__init__(*args, **kwargs)
 
 class passForm(forms.Form):
-  passForm = forms.CharField(label='', max_length=30, min_length=8, required=False)
+  passForm = forms.CharField(label='',required=False)
 
   def clean_passForm(self):
     passForm = self.cleaned_data['passForm']
     if passForm == "":
-      raise forms.ValidationError("IDを入力してください")
+      raise forms.ValidationError("パスワードを入力してください")
     elif len(passForm) >= 30 or len(passForm) <= 7:
       raise forms.ValidationError("8字以上30字以内で入力してください")
     elif re.match(r"^[\x20-\x7E]+$", passForm) == None or re.match(r"^\w+$", passForm) == None or re.search(r'\d', passForm) == None:
@@ -41,12 +41,12 @@ class passForm(forms.Form):
     super().__init__(*args, **kwargs)
 
 class passForm_a(forms.Form):
-  passForm_a = forms.CharField(label='', max_length=30, min_length=8, required=False)
+  passForm_a = forms.CharField(label='',required=False)
 
   def clean_passForm_a(self):
     passForm_a = self.cleaned_data['passForm_a']
     if passForm_a == "":
-      raise forms.ValidationError("IDを入力してください")
+      raise forms.ValidationError("パスワードを入力してください")
     elif len(passForm_a) >= 30 or len(passForm_a) <= 7:
       raise forms.ValidationError("8字以上30字以内で入力してください")
     elif re.match(r"^[\x20-\x7E]+$", passForm_a) == None or re.match(r"^\w+$", passForm_a) == None or re.search(r'\d', passForm_a) == None:

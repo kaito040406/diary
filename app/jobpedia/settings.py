@@ -132,4 +132,5 @@ MEDIA_URL = '/staticmedias/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'staticmedias')
 
 # AUTH_USER_MODEL = "account.job_t_user" 
+LOGIN_REDIRECT_URL = '/diary'
 

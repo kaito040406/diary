@@ -58,13 +58,8 @@
           method="post"
           action="/account/registrationResult"
         >
-          {% csrf_token %}
-          <!-- <input type="text" placeholder="IDを入力してください" /> -->
-          {{idError.idFome.errors}} {{idForm}}
-          <!-- <input type="password" placeholder="パスワードを入力してください" /> -->
-          {{passError2}}{{passError1.idFome.errors}}{{passForm}}
-          <!-- <input type="password" placeholder="パスワード(確認用)" /> -->
-          {{passError1.idFome.errors}}{{passForm}}
+          {% csrf_token %} {{accountCheck}}{{idError.idForm.errors}} {{idForm}}
+          {{pass_passAError}} {{passForm}} {{passForm_a}}
           <button type="submit" id="signup_button">新規登録</button>
         </form>
       </div>

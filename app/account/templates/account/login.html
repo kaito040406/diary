@@ -53,10 +53,17 @@
       <div class="login_box">
         <h1>Welcome</h1>
 
-        <form class="login_form">
-          <input type="text" placeholder="ID" />
-          <input type="password" placeholder="パスワード" />
-          <button type="submit" id="login_button">ログイン</button>
+        <form class="login_form" method="POST">
+          {% csrf_token %}
+          <!-- {% csrf_token %}{{errorMessage}} {{idForm}} {{passForm}} -->
+          {{ form.username }} {{ form.password }}
+          <button
+            type="submit"
+            id="login_button"
+            href="{% url 'login' %}?next='/diary'"
+          >
+            ログイン
+          </button>
         </form>
       </div>
 

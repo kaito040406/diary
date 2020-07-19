@@ -2,7 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 
 class NameForm(forms.Form):
-  user_name = forms.CharField(label='お名前：', max_length=20, required=False)
+  user_name = forms.CharField(label='お名前：', required=False)
 
   def clean_user_name(self):
     user_name = self.cleaned_data['user_name']
@@ -17,7 +17,7 @@ class NameForm(forms.Form):
     super().__init__(*args, **kwargs)
 
 class DiaryForm(forms.Form):
-  article = forms.CharField(widget=forms.Textarea(attrs={'placeholder':'ここに記事を書いてください'}), label='', max_length=1000,required=False) 
+  article = forms.CharField(widget=forms.Textarea(attrs={'placeholder':'ここに記事を書いてください'}), label='',required=False) 
 
   def clean_article(self):
     article = self.cleaned_data['article']
@@ -32,7 +32,7 @@ class DiaryForm(forms.Form):
     super().__init__(*args, **kwargs)
 
 class CommnterName(forms.Form):
-  commenter = forms.CharField(label='名前：', max_length=20,required=False)
+  commenter = forms.CharField(label='名前：',required=False)
 
   def clean_commenter(self):
     commenter = self.cleaned_data['commenter']
@@ -47,7 +47,7 @@ class CommnterName(forms.Form):
     super().__init__(*args, **kwargs)
 
 class CommentForm(forms.Form):
-  comment = forms.CharField(widget=forms.Textarea(attrs={'placeholder':'コメント'}), label='', max_length=1000,required=False)
+  comment = forms.CharField(widget=forms.Textarea(attrs={'placeholder':'コメント'}), label='',required=False)
 
   def clean_comment(self):
     comment = self.cleaned_data['comment']
