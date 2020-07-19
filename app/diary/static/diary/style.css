@@ -57,6 +57,9 @@
   outline: 0;
   border: 1px solid #83b9e4;
 }
+.user_name input {
+width: 190px; 
+}
 .article textarea {
   width: 95%;
   height: 50vh;
@@ -150,6 +153,7 @@
   font-size: 1.4rem;
   margin-top: 5px;
 }
+
 
 /* inputのborderの色 */
 .success {
