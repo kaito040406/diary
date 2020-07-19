@@ -53,10 +53,18 @@
       <div class="signup_box">
         <h1>新規登録フォーム</h1>
 
-        <form class="signup_form">
-          <input type="text" placeholder="IDを入力してください" />
-          <input type="password" placeholder="パスワードを入力してください" />
-          <input type="password" placeholder="パスワード(確認用)" />
+        <form
+          class="signup_form"
+          method="post"
+          action="/account/registrationResult"
+        >
+          {% csrf_token %}
+          <!-- <input type="text" placeholder="IDを入力してください" /> -->
+          {{idError.idFome.errors}} {{idForm}}
+          <!-- <input type="password" placeholder="パスワードを入力してください" /> -->
+          {{passError2}}{{passError1.idFome.errors}}{{passForm}}
+          <!-- <input type="password" placeholder="パスワード(確認用)" /> -->
+          {{passError1.idFome.errors}}{{passForm}}
           <button type="submit" id="signup_button">新規登録</button>
         </form>
       </div>
