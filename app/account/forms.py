@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import UserCreationForm
 import unicodedata
 import re
+from django.contrib.auth.forms import AuthenticationForm
 
 class idForm(forms.Form):
   idForm = forms.CharField(label='',required=False)
@@ -54,6 +55,11 @@ class passForm_a(forms.Form):
         raise forms.ValidationError("半角英数字で入力してください")
     return passForm_a
 
+  def __init__(self, *args, **kwargs):
+    kwargs.setdefault('label_suffix', '')
+    super().__init__(*args, **kwargs)
+
+class CustomAuthenticationForm(AuthenticationForm):
   def __init__(self, *args, **kwargs):
     kwargs.setdefault('label_suffix', '')
     super().__init__(*args, **kwargs)

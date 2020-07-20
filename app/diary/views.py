@@ -16,6 +16,8 @@ from .forms import CommnterName
 
 # Create your views here.
 def index(request):
+  if request.user.is_authenticated:
+    return HttpResponse("ログイン済み")
   diaries = job_t_diary.objects.order_by('-create_day')#日誌データを取得
   params={
     'diaries':diaries,
@@ -24,6 +26,8 @@ def index(request):
   return render(request, 'diary/index.html', params)
 
 def show(request, num):
+  if request.user.is_authenticated:
+    return HttpResponse("ログイン済み")
   diary = job_t_diary.objects.get(id=num)
   comments = job_t_comment.objects.filter(comment_diary_id=num).order_by('create_day')
   if 'commenter' in request.session and 'comment' in request.session and 'formCommenter' in request.session and 'formComment' in request.session:
@@ -54,6 +58,8 @@ def show(request, num):
   return render(request, 'diary/show.html',params)
 
 def create(request):
+  if request.user.is_authenticated:
+    return HttpResponse("ログイン済み")
   categories = job_m_category.objects.all()
   if 'name' in request.session and 'body' in request.session and 'formName' in request.session and 'formDiary' in request.session:
     errorName = request.session['name']
@@ -104,6 +110,8 @@ def diaryForm(request):
     return HttpResponse("システムエラー発生")
 
 def commentForm(request, num):
+  if request.user.is_authenticated:
+    return HttpResponse("ログイン済み")
   commenterName = request.POST['commenter']
   comment = request.POST['comment']
   if CommnterName(request.POST).is_valid() and CommentForm(request.POST).is_valid():

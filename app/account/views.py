@@ -3,7 +3,10 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
-
+from .forms import CustomAuthenticationForm
+from django.contrib.auth.views import (
+    LoginView, LogoutView
+)
 from django.views.generic import CreateView
 from .forms import idForm
 from .forms import passForm
@@ -110,7 +113,11 @@ def registrationResult(request):
         request.session['accountid'] = username
         request.session['pass_passA'] = "入力したパスワードが違います"
         return redirect(to='/account/registration')
-    
+def logindo(request):
+  if request.user.is_authenticated:
+    return HttpResponse("ログイン済み")
+  else:
+    return redirect(to='/account/loginnext')
 
 
 
@@ -153,3 +160,13 @@ def loginResult(request):
         request.session['errormessage'] = "IDかパスワードをご確認ください"
         return redirect(to='/account/login')
     # return HttpResponse("aa")
+
+# class CustomLoginView(LoginView):
+#   form_class = CustomAuthenticationForm
+  # def __init__(self,request, *args, **kwargs):
+  #   if request.user.is_authenticated:
+  #     return HttpResponse("ログイン済み")
+  #   else:
+  #     self.form_class
+    # super().__init__(*args, **kwargs)
+  
