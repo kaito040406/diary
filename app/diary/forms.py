@@ -32,7 +32,7 @@ class DiaryForm(forms.Form):
     super().__init__(*args, **kwargs)
 
 class CommnterName(forms.Form):
-  commenter = forms.CharField(label='名前：',required=False)
+  commenter = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '名前'}),label='',required=False)
 
   def clean_commenter(self):
     commenter = self.cleaned_data['commenter']
