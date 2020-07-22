@@ -101,13 +101,8 @@ width: 190px;
   font-size: inherit;
 }
 /* show */
-.cbutton button {
-  cursor: pointer;
-  padding-left: 11px;
-  letter-spacing: 13px;
-  border-radius: 5px;
-  width: 100px; 
-  font-size: inherit;
+.cbutton #btn {
+ margin-top: 0;
 }
 
 /* show */
