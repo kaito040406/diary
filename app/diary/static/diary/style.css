@@ -43,7 +43,7 @@
   font-size: inherit;
   font-family: inherit;
   background: #fafafa;
-  border-radius: 3px;
+  border-radius: 5px;
   padding: 10px;
   width: 60%;
   height: 35px;
@@ -63,6 +63,8 @@ width: 190px;
 .article textarea {
   width: 95%;
   height: 50vh;
+  resize: none;
+  border-radius: 25px;
 }
 /* show */
 .comment_name input {
@@ -72,6 +74,8 @@ width: 190px;
   width:100%;
   height: 45px;
   margin: 5px 0;
+  resize: none;
+  border-radius: 25px;
 }
 
 .category {
@@ -102,8 +106,10 @@ width: 190px;
 }
 /* show */
 .cbutton #btn {
- margin-top: 0;
+  margin-top: 0;
 }
+
+
 
 /* show */
 .comment_form {
