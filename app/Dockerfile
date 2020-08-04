@@ -10,6 +10,8 @@ ENV PYTHONDONTWRITEBYTECODE 1
 # Pythonが標準入出力をバッファリングすることを防ぐ
 ENV PYTHONUNBUFFERED 1
 
+ENV TZ='Asia/Tokyo'
+
 # psycopg2のインストール
 RUN apk update \
     && apk add --virtual build-deps gcc python3-dev musl-dev \

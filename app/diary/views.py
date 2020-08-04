@@ -7,6 +7,8 @@ from .models import job_m_category
 from .models import job_t_diary
 from .models import job_t_comment
 from datetime import datetime
+from django.utils import timezone
+from django.utils.timezone import localtime
 from .forms import DiaryForm
 from .forms import NameForm
 from .forms import CommentForm
@@ -96,7 +98,7 @@ def diaryForm(request):
     if NameForm(request.POST).is_valid() and DiaryForm(request.POST).is_valid():
       user_id = 0 #非ログイン時のuser_idは0となる
       title = '日直日誌'
-      createDay = datetime.now()
+      createDay = localtime(timezone.now())
       diaryDate = job_t_diary(writer_name = userName, user_id=user_id, title=title, diary=body, category_id=category, create_day=createDay ,delete_frg=0, like_number=0, comment_number=0)
       diaryDate.save()
       return redirect(to='/diary')
@@ -117,7 +119,7 @@ def commentForm(request, num):
   if CommnterName(request.POST).is_valid() and CommentForm(request.POST).is_valid():
     user_id = 0
     diary_id = job_t_diary.objects.get(id=num)
-    createDay = datetime.now()
+    createDay = localtime(timezone.now())
     commentLength = int(diary_id.comment_number) + 1
     commentDate = job_t_comment(commenter_name = commenterName, user_id = user_id, comment = comment, delete_frg = 0, comment_diary_id = diary_id, create_day = createDay)
     commentDate.save()

@@ -33,7 +33,7 @@
   text-align: center;
   font-size: 16px;
 }
-.user_name input,
+.name input,
 .article textarea,
 .comment_name input,
 .comment_word textarea {
@@ -43,22 +43,19 @@
   font-size: inherit;
   font-family: inherit;
   background: #fafafa;
+  border: 1px solid #cccccc;
   border-radius: 3px;
   padding: 10px;
   width: 60%;
   height: 35px;
 }
-
-.user_name input:focus,
+.name input:focus,
 .article textarea:focus,
 .comment_name input:focus,
 .comment_word textarea:focus {
   background: #ffffff;
   outline: 0;
-  border: 1px solid #83b9e4;
-}
-.user_name input {
-width: 190px; 
+  border: 2px solid #83b9e4;
 }
 .article textarea {
   width: 95%;
@@ -66,10 +63,10 @@ width: 190px;
 }
 /* show */
 .comment_name input {
-  width: 190px;
+  width: 70%;
 }
 .comment_word textarea {
-  width:100%;
+  width: 100%;
   height: 45px;
   margin: 5px 0;
 }
@@ -81,6 +78,7 @@ width: 190px;
   font-size: inherit;
   font-family: inherit;
   background: #fafafa;
+  border: 1px solid #cccccc;
   border-radius: 3px;
   height: 35px;
   outline: 0;
@@ -88,15 +86,18 @@ width: 190px;
 .category select:focus {
   background: #ffffff;
   outline: 0;
-  border: 1px solid #83b9e4;
+  border: 2px solid #83b9e4;
 }
 
-#btn,
+.button button,
 .cbutton button {
+  color: #333;
   margin-top: 25px;
   padding: 7px 0 7px 13px;
   cursor: pointer;
+  border: none;
   border-radius: 5px;
+  background-color: #83b9e4;
   width: 100px;
   letter-spacing: 13px;
   font-size: inherit;
@@ -110,8 +111,6 @@ width: 190px;
   letter-spacing: 2px;
   font-size: 1.4rem;
 }
-
-
 
 /* show */
 .comment_form {
@@ -154,11 +153,10 @@ width: 190px;
   margin-top: 5px;
 }
 
-
 /* inputのborderの色 */
 .success {
   border: 2px solid #83b9e4;
-} 
+}
 
 .error {
   border: 2px solid red;
