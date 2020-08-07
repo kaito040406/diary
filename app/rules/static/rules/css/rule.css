@@ -1,83 +1,161 @@
-.rule_copy-container{
-    font-size: px;
+.rule_copy-container {
+  font-size: px;
 }
 
-li{
-    font-family: ;
+ol li {
+  line-height: 1.5;
+  padding: 0.5em 0;
+  list-style-type: none !important; /*ポチ消す*/
+  font-size: 15px;
 }
 
-ol{
-    
-    font-size: 50px;
+ol li:before {
+  font-family: " FontAwesome";
+  content: "\f00c";
+  position: absolute;
+  left: 13em; /*左端からのアイコンまで*/
+  color: #ffb03f; /*アイコン色*/
 }
 
-
-.rule_flex-box{
-    display:flex;
+.rule_flex-box {
+  display: flex;
+  padding: 10px;
 }
 
-img{
-    padding:150px 130px;
+img {
+  padding: 78px 5px 78px 0px;
 }
 
-h2{
- color:#000000;
- font-size:60px;
- 
+h2 {
+  color: #000000;
+  font-size: 20px;
+  text-align: center;
+
+  position: relative;
+  padding: 0.25em 1em;
+  border: solid 2px black;
+  border-radius: 3px 0 3px 0;
 }
 
-h1{
-    text-align: center;
-    color:;
-    font-size: 100px;
-    font-family: Noto Sans JP;
+h2:before,
+h2:after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: solid 3px black;
+  border-radius: 50%;
 }
 
-h4{
-    padding-bottom: 100px;
+h2:after {
+  top: -12px;
+  left: -12px;
 }
 
-.rule_contents{
-    background-color:;
+h2:before {
+  bottom: -12px;
+  right: -12px;
 }
 
-ul{
-    background-color:;
+h1 {
+  text-align: center;
+  font-size: 33px;
+  font-family: Noto Sans JP;
+}
+span {
+  background: linear-gradient(transparent 70%, #ffff7f 0%);
+  font-size: 22px;
 }
 
-body{
-    background-color:;
+h8 {
+  position: relative;
+  padding: 0.6em;
+  background: -webkit-repeating-linear-gradient(
+    -45deg,
+    #fff5df,
+    #fff5df 4px,
+    #ffe4b1 3px,
+    #ffe4b1 8px
+  );
+  background: repeating-linear-gradient(
+    -45deg,
+    #fff5df,
+    #fff5df 4px,
+    #ffe4b1 3px,
+    #ffe4b1 8px
+  );
+  border-radius: 7px;
+  font-family: sans-serif;
 }
 
-h5{
- font-size: 80px;
- padding-top: 200px;
- color:#FF8856;
- text-align: center;
-
- font-family:'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
- 
+h8:after {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 30px;
+  border: 15px solid transparent;
+  border-top: 15px solid #ffebbe;
+  width: 0;
+  height: 0;
 }
 
-h6{
-    font-size: medium;
-    
-    padding: 0.5em 1em;
-    margin: 2em 0;
-    color: #232323;
-    background: #fff8e8;
-    border-left: solid 10px #ffc06e;
-
-    margin: 0; 
-    padding: 0;
-
-    font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", ;
+h4 {
+  padding-bottom: 100px;
+  font-size: 20px;
 }
 
-.rule_list{
-    background-color: ;
+h7 {
+  font-size: 20px;
 }
 
-h10{
-    width: 100%;
+h5 {
+  font-size: 30px;
+  padding-top: 50px;
+  color: #ff8856;
+  text-align: center;
+
+  font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ",
+    Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+
+  font-weight: bold;
+  font-family: Helvetica;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
+    0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
+    0 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+h6 {
+  font-size: 18px;
+
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  background: #fff8e8;
+  border-left: solid 10px #ffc06e;
+
+  margin: 0;
+  padding: 0;
+
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI";
+}
+
+h:first-letter {
+  font-size: 2em;
+  color: #7172ac;
+}
+
+h10 {
+  width: 100%;
+}
+
+body {
+  padding: 30px 50px 30px 40px;
+}
+
+.point {
+  padding-top: 20px;
+}
+.mainsentence {
+  padding-bottom: 20px;
 }

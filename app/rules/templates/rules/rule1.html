@@ -2,20 +2,56 @@
 <html>　
 
  <!doctype html>
-    <head>
-     <meta charset="utf-8">
-     <link rel="stylesheet" href="{% static 'rules/css/reset.css' %}" />
-     <link rel="stylesheet" href="{% static 'rules/css/rule.css' %}" />
-     <title> </title>
-    </head>
-  </html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" hre="reset.css"> -->
+    <link rel="stylesheet" href="{% static 'rules/css/reset.css' %}" />
+    <!-- <link rel="stylesheet" href="rule.css"> -->
+    <link rel="stylesheet" href="{% static 'rules/css/rule.css' %}" />
+    <link rel="stylesheet" href="{% static 'rules/css/style.css' %}" /> 
+    <!-- <link rel="stylesheet" href="css/inc.css"> -->
+    <link rel="stylesheet" href="{% static 'rules/css/inc.css' %}" />
 
-  
-  
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <title> </title>
+  </head>
+
   <body>
-      <header>
-        
-      </header>
+    
+    <header class="header">
+      <!-- ハンバーガーエリア -->
+      <div class="ham">
+        <input class="ham_checkbox" id="hamCheckbox" type="checkbox" >
+        <!-- ハンバーガーアイコン -->
+        <label class="ham_icon" for="hamCheckbox">
+          <span class="icon_parts1"></span>
+          <span class="icon_parts2"></span>
+          <span class="icon_parts3"></span>
+          <p class="icon_name">menu</p>
+          <p class="icon_name2">close</p>
+        </label>
+        <!-- 背景を暗く -->
+        <label class="ham_overlay" for="hamCheckbox"></label>
+        <!-- ハンバーガーメニュー -->
+        <nav class="ham_menu">
+          <ul>
+            <li class="ham_item">
+              <a href="/diary">ホーム画面</a>
+            </li>
+            <li class="ham_item">
+              <a href="/rules">学則</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="logo">
+        <!-- <a href=""><img src="images/logo.png" alt=""></a>
+        <a href=""><img src="{% static 'images/logo.png' %}" alt=""></a>
+        <link rel="stylesheet" href="{% static 'rules/inc.css' %}" /> -->
+      </div>
+    
+    </header>
       
 
     <div class="rule_main">
@@ -26,11 +62,10 @@
         
 
        </div>
-
     </div>
 
     <div class="rule_flex-box">
-      <img src="{% static 'rules/images/rule1.png' %}">
+      <img src="{% static 'rules/images/rule1.png' %}" class="jobZoo">
       <ol>
         <li>聴く力</li>
         <li>考える</li>
@@ -42,43 +77,74 @@
 
 
     <div class="rule_copy-container">
-      <h2>JOB-ZOOコミュニティー式<br>喜び方5ヶ条</h2>
-      <h3></h3>
+      <h2>JOB-ZOO<br>コミュニティー<br>【社会人大学】</h2>
+      <h3 class="mainsentence">社会人の【仕事・キャリア】<br>について一緒に考えるコミュニティ<br> <span>『成長』</span> <span>『交流』</span>をキーワードに様々な取り組みを行っています！！！
+      </h3>
       
-      <h4>
-        
-       <br>
-       <br>
-       
+      <h8>ポイント</h8>
+      <h4 class="point">
+        <ul>
+         <li>多くの講師陣在籍</li>
+         <li>みんなが先生であり、<br>生徒でもある</li>
+        </ul>
       </h4>
-      
+
+      <h7> 
+       
+       一度の転職で満足してはいけません。今後長期的なキャリアを形成していくにあたって、常に選択肢を多く持ち、積み重ねるキャリア形成が安定に繋がります。
+       <p>市場価値を向上させることは、自分の経験したことないことにチャレンジして変化に対応できる人間にならなくてはいけません。</p>
+       このJOB-ZOOコミュニティのプロジェクトを通して市場価値を向上させましょう！
+      </h7>
+
+
     </div>
 
     <div class="rule_contents">
       <h5>聴く力</h5>
        
-      <h6><br>この場所に参加していいんだ。という認められる感覚か安心感へとつながります。
-        <br>
-        そして安心できる場には積極的に参加しようと思えます。挑戦しやすくなるのです。いい人に思われたいからほめるのではありません。互いに存在を認め合い、ばの情報量を増やすために積極的にほめましょう。
+      <h6>まずは「知る」ことが重要です。
+        様々なキャリアを持っている人の話を聞き、
+        自分の<span>興味の可能性</span>を広げましょう。
+       <br> 相手の話を、相手の立場に立って、
+        相手の気持ちに共感しながら理解しようとする力
+        を付けましょう。
       </h6>
       <h5>考える</h5>
-      <h6><br>聴くは「受信」行為ではありません。「あなたの話を聴いていますよ」という行為が相手に伝わって初めて成り立つ「発信」です
-        <br>
-        発信者として聴く。という意識を持ち、うなずくや身体を発言者に向けるなど、工夫をしましょう。
+      <h6>長期的なキャリアを形成するにあたって
+        考え続けることが重要です。
+       <br>「この仕事で何を得たいのか」「何のためにやるのか」
+       <br>意味を考えて行動することが<br>成長の『カギ』です。
+        しっかり考えて行動しましょう。
       </h6>
       <h5>アクション</h5>
-      <h6><br>発言に接したとき、「それはダメだね」「バカみたい」など即否定することはやめてください。これが続くと「ここでは何を言っても無駄だ」と口を閉ざしてしまい「学習されたあきらめ」状態となります。「なるほどね！（Yes！）」「そうゆう考えなんだね（Yes！）」など、まず受け止める。受容と肯定は違いますから、安心してYesと言います。その上で、「でもこういう点は調べたの？（but…）」と指摘する、Yes!but…で話しましょう。</h6>
+      <h6>積極的にアクションによって
+       <br><span>インプット</span>を<span>アウトプット</span>を増やし
+       思考回数を増やすことができます。
+
+       <p>知識・経験の定着率は
+       聞く５％に対して
+       教えるというアクションは<span>９０％</span>です！
+       コミュニティ内でのアクションによって、成長
+       を最大化させましょう！</p>
+
+      </h6>
       <h5>人間力</h5>
-      <h6><br>考えながら答えるとき、人は「えーーー」といいながら遠くを見たり、押し黙ったりします。
-        <br>
-        ほとんどの人は対応する立場として親切心から「それはこういうことですか？」など口を挟みます。
-        <br>
-        これはやめましょう。なぜなら、どう言ったら良いかななど自らの力で答えを探している思考トレーニングしてるのです。わたしたちはこれを生産的沈黙と呼んでいます。思考の時間を尊重しましょう。
+      <h6>何かに挑戦するときに、どれだけの人が応援
+       してくれるかということは
+       非常に重要です。
+       <span>『人間力＝人に好かれる力』</span>
+       <br>いろんな人に応援してもらえる
+       ビジネスパーソンになりましょう！
+        
+
       </h6>
       <h5>楽しむ</h5>
-      <h6><br>何か物事を成し遂げようしたり、目的に向かって一歩を積み重ねたり、夢中になっているときは、苦しさや楽しさなどまったく関係なく、集中しています。集中するということが一番大切なのです
-        <br>
-        あらかじめ決まった未来があるのではなく、未来をつくる立場で、わたしたちは日々成長に臨んでいきます。関わり続けることが重要です。そのためにすべてを安らいで愉快に扱っていきましょう。
+      <h6>そして最後は何事にも<br><span>『楽しむ』</span>気持ちを
+       忘れずにいることが重要です。
+       <br>楽しく経験を積んで、楽しく知識を身に付けて
+       成長していきましょう。
+
+
       </h6>
  
     </div>
