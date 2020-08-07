@@ -16,12 +16,14 @@
     <!-- ハンバーガーメニュー -->
     <nav class="ham_menu">
       <ul>
+        {% for category in categories %}
         <li class="ham_item">
-          <a href="/diary">朝礼日誌</a>
+          <a href="{% url 'searchIndex' category.id %}"
+            >{{category.category_text}}</a
+          >
+          {% endfor %}
         </li>
-        <li class="ham_item">
-          <a href="/diary">日記</a>
-        </li>
+
         <li class="ham_item">
           <a href="/rules">学則</a>
         </li>

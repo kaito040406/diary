@@ -30,6 +30,20 @@
           <span class="contentHeader" name="contentHeader">
             <label>{{diary.title}}　{{diary.writer_name}}</label>
           </span>
+          <div class="categoryText">
+            <div
+              class="categoryTextInner"
+              style="
+                display: inline-block;
+                padding: 0.6rem;
+                border-radius: 5px;
+                color: #999999;
+                font-size: 1.5rem;
+              "
+            >
+              {{diary.category_id.category_text}}
+            </div>
+          </div>
           <div class="contentBody" name="contentBody">
             {{diary.diary|truncatechars:30 | linebreaksbr}}
           </div>

@@ -21,9 +21,23 @@ def index(request):
   if request.user.is_authenticated:
     return HttpResponse("ログイン済み")
   diaries = job_t_diary.objects.order_by('-create_day')#日誌データを取得
+  categories = job_m_category.objects.all()
   params={
     'diaries':diaries,
+    'categories':categories,
     'from':'index'
+  }
+  return render(request, 'diary/index.html', params)
+
+def searchIndex(request, num):
+  if request.user.is_authenticated:
+    return HttpResponse("ログイン済み")
+  diaries = job_t_diary.objects.filter(category_id=num).order_by('-create_day')#日誌データを取得
+  categories = job_m_category.objects.all()
+  params={
+    'diaries':diaries,
+    'categories':categories,
+    'from':'indexSearch'
   }
   return render(request, 'diary/index.html', params)
 
@@ -31,6 +45,7 @@ def show(request, num):
   if request.user.is_authenticated:
     return HttpResponse("ログイン済み")
   diary = job_t_diary.objects.get(id=num)
+  categories = job_m_category.objects.all()
   comments = job_t_comment.objects.filter(comment_diary_id=num).order_by('create_day')
   if 'commenter' in request.session and 'comment' in request.session and 'formCommenter' in request.session and 'formComment' in request.session:
     errorCommenter = request.session['commenter']
@@ -54,7 +69,8 @@ def show(request, num):
     'nameForm':name,
     'commentForm':commentForm,
     'formName':formCommenter,
-    'formComment':formComment
+    'formComment':formComment,
+    'categories':categories,
   }
   # 何時間前の機能をつける
   return render(request, 'diary/show.html',params)
@@ -64,6 +80,7 @@ def create(request):
     return HttpResponse("ログイン済み")
   categories = job_m_category.objects.all()
   if 'name' in request.session and 'body' in request.session and 'formName' in request.session and 'formDiary' in request.session:
+    categories = job_m_category.objects
     errorName = request.session['name']
     errorDiary = request.session['body']
     formName = request.session['formName']
@@ -84,7 +101,8 @@ def create(request):
     'nameForm':name,
     'diaryForm':Diary,
     'formName':formName,
-    'formDiary':formDiary
+    'formDiary':formDiary,
+    'categories':categories,
   }
   return render(request, 'diary/create.html', params)
 
@@ -139,8 +157,10 @@ def searchForm(request):
     response = redirect('/diary')
   else:
     hit_data = job_t_diary.objects.filter(writer_name__contains=searchWord).order_by('create_day')
+    categories = job_m_category.objects.all()
     params={
       'diaries':hit_data,
+      'categories':categories,
       'from':'search'
     }
     response = render(request, 'diary/index.html', params)
